@@ -2,8 +2,10 @@ package cooperative.config;
 
 import cooperative.model.entity.Car;
 import cooperative.model.entity.Customer;
+import cooperative.model.entity.Garage;
 import cooperative.repository.CarRepository;
 import cooperative.repository.CustomerRepository;
+import cooperative.repository.GarageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -17,6 +19,9 @@ public class DbConfig {
 
     @Autowired
     CarRepository carRepository;
+
+    @Autowired
+    GarageRepository garageRepository;
 
     @PostConstruct
     public void init() {
@@ -40,6 +45,19 @@ public class DbConfig {
                 .carNumber("AA2345BN")
                 .brand("Audi")
                 .model("Audi Q3")
+                .build());
+
+        garageRepository.save(Garage.builder()
+                .garageNumber(101)
+                .build());
+        garageRepository.save(Garage.builder()
+                .garageNumber(102)
+                .build());
+        garageRepository.save(Garage.builder()
+                .garageNumber(103)
+                .build());
+        garageRepository.save(Garage.builder()
+                .garageNumber(104)
                 .build());
 
         customerRepository.save(Customer.builder()
