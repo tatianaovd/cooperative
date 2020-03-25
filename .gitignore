@@ -1,0 +1,3 @@
+#exclude intelij files
+.idea/
+target/
